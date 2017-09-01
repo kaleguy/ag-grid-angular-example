@@ -35,9 +35,6 @@ export class GroupedDataGrid {
 
     constructor() {
         this.gridOptions = <GridOptions>{};
-        this.gridOptions.frameworkComponents = {
-            myRenderer:CustomGroupRenderer
-        };
         this.gridOptions.rowData = this.createRowData();
         this.gridOptions.columnDefs = this.createColumnDefs();
         this.gridOptions.onGridReady = () => {

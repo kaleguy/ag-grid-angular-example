@@ -17,32 +17,47 @@ export class FloatingFilterComponent {
             onGridReady: function (params) {
                 params.api.sizeColumnsToFit();
             },
-            floatingFilter:true
+            floatingFilter: true
         }
     }
 
     private createColumnDefs() {
         return [
-            {headerName: "Country", field: "country", suppressFilter:true},
-            {headerName: "Language", field: "language", suppressFilter:true},
-            {headerName: "Name", field: "name", suppressFilter:true},
-            {headerName: "Gold", field: "gold", floatingFilterComponentFramework: SliderFloatingFilter,
-                floatingFilterComponentParams:{
-                    maxValue:7,
-                    suppressFilterButton:true
-                }, filter:'number', suppressMenu:true
+            {headerName: "Country", field: "country", suppressFilter: true},
+            {headerName: "Language", field: "language", suppressFilter: true},
+            {headerName: "Name", field: "name", suppressFilter: true},
+            {
+                headerName: "Gold",
+                field: "gold",
+                floatingFilterComponentFramework: SliderFloatingFilter,
+                floatingFilterComponentParams: {
+                    maxValue: 7,
+                    suppressFilterButton: true
+                },
+                filter: 'number',
+                suppressMenu: false
             },
-            {headerName: "Silver", field: "silver", filter:'number', floatingFilterComponentFramework: SliderFloatingFilter,
-                floatingFilterComponentParams:{
-                    maxValue:5,
-                    suppressFilterButton:true
-                }, suppressMenu:true
+            {
+                headerName: "Silver",
+                field: "silver",
+                filter: 'number',
+                floatingFilterComponentFramework: SliderFloatingFilter,
+                floatingFilterComponentParams: {
+                    maxValue: 5,
+                    suppressFilterButton: true
+                },
+                suppressMenu: false
             },
-            {headerName: "Bronze", field: "bronze", filter:'number', floatingFilterComponentFramework: SliderFloatingFilter,
-                floatingFilterComponentParams:{
-                    maxValue:10,
-                    suppressFilterButton:true
-                },suppressMenu:true
+            {
+                headerName: "Bronze",
+                field: "bronze",
+                filter: 'number',
+                floatingFilterComponentFramework: SliderFloatingFilter,
+                floatingFilterComponentParams: {
+                    maxValue: 10,
+                    suppressFilterButton: true
+                },
+                suppressMenu: false
             }
         ];
     }

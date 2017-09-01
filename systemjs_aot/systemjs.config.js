@@ -15,8 +15,6 @@
                 '@angular/forms': 'node_modules/@angular/forms/bundles/forms.umd.js',
                 // other libraries
                 'rxjs': 'node_modules/rxjs',
-                'jquery': 'node_modules/jquery/dist',
-                'jquery-ui': 'node_modules/jquery-ui/ui/widgets',
                 'lodash': 'node_modules/lodash',
                 // ag libraries
                 'ag-grid-angular': 'node_modules/ag-grid-angular',
@@ -38,12 +36,6 @@
                 },
                 'ag-grid-enterprise': {
                     main: 'main.js'
-                },
-                'jquery': {
-                    main: 'jquery.js'
-                },
-                'jquery-ui': {
-                    main: 'slider.js'
                 },
                 'lodash': {
                     main: 'index.js',
