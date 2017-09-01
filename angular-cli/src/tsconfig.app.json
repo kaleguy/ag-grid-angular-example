@@ -13,7 +13,11 @@
     "target": "es5",
     "module": "es2015",
     "baseUrl": "",
-    "types": []
+    "types": [],
+    "paths": {
+      "@angular/*": ["../node_modules/@angular/*"],
+      "ag-grid/*": ["../node_modules/ag-grid/*"]
+    }
   },
   "exclude": [
     "test.ts",

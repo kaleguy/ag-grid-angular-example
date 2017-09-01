@@ -10,7 +10,12 @@
     "removeComments": true,
     "noImplicitAny": false,
     "lib": ["dom","es2015"],
-    "outDir": "aot"
+    "outDir": "aot",
+    "baseUrl": "",
+    "paths": {
+      "@angular/*": ["node_modules/@angular/*"],
+      "ag-grid/*": ["node_modules/ag-grid/*"]
+    }
   },
   "exclude": [
     "node_modules/",
