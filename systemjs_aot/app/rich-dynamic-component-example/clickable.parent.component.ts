@@ -18,8 +18,9 @@ export class ClickableParentComponent implements ICellRendererAngularComp {
         this.cell = {row: params.value, col: params.colDef.headerName};
     }
 
+    // noinspection JSMethodCanBeStatic
     public clicked(cell: any): void {
-        console.log("Child Cell Clicked: " + JSON.stringify(cell));
+        alert("Child Cell Clicked: " + JSON.stringify(cell));
     }
 
     refresh(): boolean {

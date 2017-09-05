@@ -13,8 +13,8 @@ export class GroupRowComponent {
 
     constructor() {
         this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = this.createRowData();
-        this.gridOptions.columnDefs = this.createColumnDefs();
+        this.gridOptions.rowData = GroupRowComponent.createRowData();
+        this.gridOptions.columnDefs = GroupRowComponent.createColumnDefs();
         this.gridOptions.groupUseEntireRow = true;
         this.gridOptions.groupRowInnerRendererFramework = MedalRendererComponent;
         this.gridOptions.onGridReady = () => {
@@ -22,7 +22,7 @@ export class GroupRowComponent {
         };
     }
 
-    private createColumnDefs() {
+    private static createColumnDefs() {
         return [
             {
                 headerName: "Country",
@@ -56,7 +56,7 @@ export class GroupRowComponent {
         ];
     }
 
-    private createRowData() {
+    private static createRowData() {
         return [
             {country: "United States", name: "Bob", gold: 1, silver: 0, bronze: 0},
             {country: "United States", name: "Jack", gold: 0, silver: 1, bronze: 1},

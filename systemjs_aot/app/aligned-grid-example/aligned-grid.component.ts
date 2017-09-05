@@ -12,10 +12,9 @@ export class AlignedGridComponent implements AfterViewInit {
 
     constructor(private http: HttpClient) {
         this.gridOptionsTop = <GridOptions>{
-            columnDefs: this.createColumnDefs(),
+            columnDefs: AlignedGridComponent.createColumnDefs(),
             rowData: null,
             enableColResize: true,
-            debug: true,
             alignedGrids: [],
             onGridReady: (params) => {
                 this.retrieveAndSetRowData(params)
@@ -24,10 +23,9 @@ export class AlignedGridComponent implements AfterViewInit {
         };
 
         this.gridOptionsBottom = <GridOptions>{
-            columnDefs: this.createColumnDefs(),
+            columnDefs: AlignedGridComponent.createColumnDefs(),
             rowData: null,
             enableColResize: true,
-            debug: true,
             alignedGrids: [],
             onGridReady: (params) => {
                 this.retrieveAndSetRowData(params);
@@ -44,7 +42,7 @@ export class AlignedGridComponent implements AfterViewInit {
             );
     }
 
-    private createColumnDefs() {
+    private static createColumnDefs() {
         return [
             {headerName: "Athlete", field: "athlete", width: 200},
             {headerName: "Age", field: "age", width: 150},
@@ -75,7 +73,5 @@ export class AlignedGridComponent implements AfterViewInit {
 
         this.gridOptionsTop.api.sizeColumnsToFit();
         this.gridOptionsBottom.api.sizeColumnsToFit();
-
-
     }
 }

@@ -13,7 +13,10 @@ export class CurrencyComponent implements ICellRendererAngularComp {
         this.params = params;
     }
 
-    refresh(): boolean {
-        return false;
+    refresh(params): boolean {
+        if(params.value !== this.params.value) {
+            this.params = params;
+        }
+        return true;
     }
 }

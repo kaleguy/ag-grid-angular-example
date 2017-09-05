@@ -20,28 +20,32 @@ import {HeaderComponent} from "../header-component/header.component";
 export class RichGridComponent {
 
     private gridOptions: GridOptions;
-    public showGrid: boolean;
     public rowData: any[];
     private columnDefs: any[];
     public rowCount: string;
     public dateComponentFramework: DateComponent;
     public HeaderGroupComponent = HeaderGroupComponent;
 
+    public showGrid: boolean = true;
+    public allSelected: boolean = false;
+    public countryHidden: boolean = false;
+
     constructor() {
         // we pass an empty gridOptions in, so we can grab the api out
-        this.gridOptions = <GridOptions>{};
         this.createRowData();
         this.createColumnDefs();
-        this.showGrid = true;
-        this.gridOptions.dateComponentFramework = DateComponent;
-        this.gridOptions.defaultColDef = {
-            headerComponentFramework: <{ new(): HeaderComponent }>HeaderComponent,
-            headerComponentParams: {
-                menuIcon: 'fa-bars'
-            }
+
+        this.gridOptions = <GridOptions>{
+            dateComponentFramework: DateComponent,
+            defaultColDef: {
+                headerComponentFramework: HeaderComponent,
+                headerComponentParams: {
+                    menuIcon: 'fa-bars'
+                }
+            },
+            getContextMenuItems: this.getContextMenuItems.bind(this),
+            floatingFilter: true
         };
-        this.gridOptions.getContextMenuItems = this.getContextMenuItems.bind(this);
-        this.gridOptions.floatingFilter = true;
     }
 
     private getContextMenuItems(): any {
@@ -88,8 +92,13 @@ export class RichGridComponent {
     private createColumnDefs() {
         this.columnDefs = [
             {
-                headerName: '#', width: 30, checkboxSelection: true, suppressSorting: true,
-                suppressMenu: true, pinned: true
+                headerName: '#',
+                width: 30,
+                checkboxSelection: true,
+                suppressSorting: true,
+                suppressMenu: true,
+                suppressFilter: true,
+                pinned: true
             },
             {
                 headerName: 'Employee',

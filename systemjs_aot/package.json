@@ -41,10 +41,13 @@
     "@angular/platform-browser": "4.3.3",
     "@angular/platform-browser-dynamic": "4.3.3",
     "@angular/platform-server": "4.3.3",
+    "@angular/animations@4.3.3 ": "4.3.3",
+    "@angular/router": "4.3.3",
     "core-js": "2.4.x",
     "rxjs": "5.0.x",
     "zone.js": "0.8.x",
     "jquery": "3.1.1",
+    "jquery.layout": "1.2.0",
     "bootstrap": "3.3.6",
     "systemjs": "0.19.x"
   },

@@ -1,30 +1,7 @@
 import {Component} from "@angular/core";
 
-import {
-    GridOptions,
-    ICellRendererParams,
-    IAfterGuiAttachedParams
-} from "ag-grid/main";
-import {ICellRendererAngularComp} from "ag-grid-angular/main";
-
-@Component({
-    selector: 'my-renderer',
-    template: `Custom: {{params.value}}`
-})
-export class CustomGroupRenderer implements ICellRendererAngularComp {
-    public params:ICellRendererParams;
-
-    refresh(params: any): boolean {
-        return false;
-    }
-
-    agInit(params: ICellRendererParams): void {
-        this.params = params;
-    }
-
-    afterGuiAttached(params?: IAfterGuiAttachedParams): void {}
-
-}
+import {GridOptions} from "ag-grid/main";
+import {CustomGroupRenderer} from "./group-renderer";
 
 @Component({
     selector: 'ag-grouped-data-grid',
@@ -34,27 +11,29 @@ export class GroupedDataGrid {
     public gridOptions: GridOptions;
 
     constructor() {
-        this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = this.createRowData();
-        this.gridOptions.columnDefs = this.createColumnDefs();
-        this.gridOptions.onGridReady = () => {
-            this.gridOptions.api.sizeColumnsToFit();
-        };
-        this.gridOptions.autoGroupColumnDef = {
-            cellRendererParams: {
-                innerRendererFramework: CustomGroupRenderer
+        this.gridOptions = <GridOptions>{
+            rowData: GroupedDataGrid.createRowData(),
+            columnDefs: GroupedDataGrid.createColumnDefs(),
+            autoGroupColumnDef: {
+                cellRendererParams: {
+                    innerRendererFramework: CustomGroupRenderer
+                }
             }
-        }
+        };
     }
 
-    private createColumnDefs() {
+    onGridReady() {
+        this.gridOptions.api.sizeColumnsToFit();
+    }
+
+    private static createColumnDefs() {
         return [
             {
                 headerName: "Country",
                 field: "country",
-                width: 100,
+                width: 250,
                 rowGroup: true,
-                hide:true
+                hide: true
             },
             {
                 headerName: "Name",
@@ -83,7 +62,7 @@ export class GroupedDataGrid {
     }
 
 
-    private createRowData() {
+    private static createRowData() {
         return [
             {country: "United States", name: "Bob", gold: 1, silver: 0, bronze: 0},
             {country: "United States", name: "Jack", gold: 0, silver: 1, bronze: 1},

@@ -13,6 +13,7 @@
                 'tslib': 'node_modules/tslib/tslib.js',
                 '@angular/http': 'node_modules/@angular/http/bundles/http.umd.js',
                 '@angular/forms': 'node_modules/@angular/forms/bundles/forms.umd.js',
+                '@angular/router': 'node_modules/@angular/router/bundles/router.umd.js',
                 // other libraries
                 'rxjs': 'node_modules/rxjs',
                 'lodash': 'node_modules/lodash',

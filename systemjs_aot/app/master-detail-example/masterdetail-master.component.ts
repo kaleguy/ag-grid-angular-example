@@ -10,30 +10,10 @@ export class MasterComponent implements AfterViewInit {
     public gridOptions: GridOptions;
 
     constructor() {
-        this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = this.createRowData();
-        this.gridOptions.columnDefs = this.createColumnDefs();
-    }
-
-    private createColumnDefs() {
-        return [
-            {
-                headerName: 'Name', field: 'name',
-                // left column is going to act as group column, with the expand / contract controls
-                cellRenderer: 'group',
-                // we don't want the child count - it would be one each time anyway as each parent
-                // not has exactly one child node
-                cellRendererParams: {suppressCount: true}
-            },
-            {headerName: 'Account', field: 'account'},
-            {headerName: 'Calls', field: 'totalCalls'},
-            {headerName: 'Minutes', field: 'totalMinutes', valuelFormatter: this.minuteCellFormatter}
-        ];
-    }
-
-
-    public isFullWidthCell(rowNode) {
-        return rowNode.level === 1;
+        this.gridOptions = <GridOptions>{
+            rowData: this.createRowData(),
+            columnDefs: MasterComponent.createColumnDefs()
+        };
     }
 
     // Sometimes the gridReady event can fire before the angular component is ready to receive it, so in an angular
@@ -42,16 +22,24 @@ export class MasterComponent implements AfterViewInit {
         this.gridOptions.api.sizeColumnsToFit();
     }
 
+    // noinspection JSMethodCanBeStatic
+    public isFullWidthCell(rowNode) {
+        return rowNode.level === 1;
+    }
+
+    // noinspection JSMethodCanBeStatic
     public getFullWidthCellRenderer() {
         return DetailPanelComponent;
     }
 
+    // noinspection JSMethodCanBeStatic
     public getRowHeight(params) {
-        var rowIsDetailRow = params.node.level === 1;
+        const rowIsDetailRow = params.node.level === 1;
         // return 100 when detail row, otherwise return 25
         return rowIsDetailRow ? 200 : 25;
     }
 
+    // noinspection JSMethodCanBeStatic
     public getNodeChildDetails(record) {
         if (record.callRecords) {
             return {
@@ -68,6 +56,21 @@ export class MasterComponent implements AfterViewInit {
         }
     }
 
+    private static createColumnDefs() {
+        return [
+            {
+                headerName: 'Name', field: 'name',
+                // left column is going to act as group column, with the expand / contract controls
+                cellRenderer: 'group',
+                // we don't want the child count - it would be one each time anyway as each parent
+                // not has exactly one child node
+                cellRendererParams: {suppressCount: true}
+            },
+            {headerName: 'Account', field: 'account'},
+            {headerName: 'Calls', field: 'totalCalls'},
+            {headerName: 'Minutes', field: 'totalMinutes', valueFormatter: MasterComponent.minuteCellFormatter}
+        ];
+    }
 
     private createRowData() {
         let rowData: any[] = [];
@@ -114,8 +117,11 @@ export class MasterComponent implements AfterViewInit {
         return rowData;
     }
 
-    private minuteCellFormatter(params) {
-        return params.value.toLocaleString() + 'm';
+    private static minuteCellFormatter(params) {
+        let value = params.value;
+        let hours = Math.floor(value / 60);
+        let minutes = Math.floor(value - (hours * 60));
+        return `${hours}h${minutes}m`;
     };
 
 
@@ -128,6 +134,4 @@ export class MasterComponent implements AfterViewInit {
     // each call gets a unique id, nothing to do with the grid, just help make the sample
     // data more realistic
     private callIdSequence: number = 555;
-
-
 }

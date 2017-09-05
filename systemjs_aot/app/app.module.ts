@@ -1,8 +1,8 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
 import {HttpClientModule} from '@angular/common/http';
-
 // ag-grid
 import {AgGridModule} from "ag-grid-angular/main";
 // application
@@ -15,14 +15,14 @@ import {RichGridDeclarativeComponent} from "./rich-grid-declarative-example/rich
 import {DateComponent} from "./date-component/date.component";
 import {HeaderComponent} from "./header-component/header.component";
 import {HeaderGroupComponent} from "./header-group-component/header-group.component";
-// from component
+// simple dynamic component
 import {DynamicComponent} from "./dynamic-component-example/dynamic.component";
 import {SquareComponent} from "./dynamic-component-example/square.component";
 import {ParamsComponent} from "./dynamic-component-example/params.component";
 import {CubeComponent} from "./dynamic-component-example/cube.component";
 import {CurrencyComponent} from "./dynamic-component-example/currency.component";
 import {ChildMessageComponent} from "./dynamic-component-example/child-message.component";
-// from rich component
+// rich dynamic component
 import {RichComponent} from "./rich-dynamic-component-example/rich.component";
 import {ClickableModule} from "./rich-dynamic-component-example/clickable.module";
 import {RatioModule} from "./rich-dynamic-component-example/ratio.module";
@@ -57,14 +57,18 @@ import {RxJsComponentByFullSet} from "./rxjs-component-example/rxjs-by-bulk.comp
 // infinite pagination
 import {InfinitePaginationComponent} from "./infinite-pagination/infinite-pagination.component";
 // grouped rows: inner renderer
-import {GroupedDataGrid, CustomGroupRenderer} from "./grouped-data-example/grouped.data.grid";
+import {GroupedDataGrid} from "./grouped-data-example/grouped.data.grid";
+import {CustomGroupRenderer} from "./grouped-data-example/group-renderer";
 // aligned grid
 import {AlignedGridComponent} from "./aligned-grid-example/aligned-grid.component";
+// for the demo
+import appRoutes from "./routes";
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
+        RouterModule.forRoot(appRoutes),
         HttpClientModule,
         AgGridModule.withComponents(
             [

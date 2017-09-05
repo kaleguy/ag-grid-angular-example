@@ -13,13 +13,36 @@ export class EditorComponent {
 
     constructor() {
         this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = this.createRowData();
-        this.gridOptions.columnDefs = this.createColumnDefs();
+        this.gridOptions.rowData = EditorComponent.createRowData();
+        this.gridOptions.columnDefs = EditorComponent.createColumnDefs();
     }
 
-    private createColumnDefs() {
+    private static createColumnDefs() {
         return [
-            {headerName: "Name", field: "name", width: 300},
+            {
+                headerName: "Name",
+                field: "name",
+                width: 300,
+                editable: true,
+                cellEditor: 'richSelect',
+                cellEditorParams: {
+                    values: [
+                        "Bob",
+                        "Harry",
+                        "Sally",
+                        "Mary",
+                        "John",
+                        "Jack",
+                        "Sue",
+                        "Sean",
+                        "Niall",
+                        "Albert",
+                        "Fred",
+                        "Jenny",
+                        "Larry"
+                    ]
+                }
+            },
             {
                 headerName: "Mood",
                 field: "mood",
@@ -38,7 +61,7 @@ export class EditorComponent {
         ];
     }
 
-    private createRowData() {
+    private static createRowData() {
         return [
             {name: "Bob", mood: "Happy", number: 10},
             {name: "Harry", mood: "Sad", number: 3},

@@ -12,11 +12,11 @@ export class RichComponent {
 
     constructor() {
         this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = this.createRowData();
-        this.gridOptions.columnDefs = this.createColumnDefs();
+        this.gridOptions.rowData = RichComponent.createRowData();
+        this.gridOptions.columnDefs = RichComponent.createColumnDefs();
     }
 
-    private createColumnDefs() {
+    private static createColumnDefs() {
         return [
             {headerName: "Name", field: "name", width: 200},
             {
@@ -34,7 +34,7 @@ export class RichComponent {
         ];
     }
 
-    private createRowData() {
+    private static createRowData() {
         return [
             {name: 'Homer Simpson', ratios: {top: 0.25, bottom: 0.75}},
             {name: 'Marge Simpson', ratios: {top: 0.67, bottom: 0.39}},

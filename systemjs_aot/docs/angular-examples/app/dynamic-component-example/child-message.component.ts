@@ -13,7 +13,7 @@ export class ChildMessageComponent implements ICellRendererAngularComp {
     }
 
     public invokeParentMethod() {
-        this.params.context.componentParent.methodFromParent(`Row: ${this.params.node.rowIndex}, Col: ${this.params.colDef.headerName}`)
+        DynamicComponent.methodFromParent(`Row: ${this.params.node.rowIndex}, Col: ${this.params.colDef.headerName}`)
     }
 
     refresh(): boolean {

@@ -5,7 +5,6 @@ import {GridOptions} from "ag-grid/main";
 import ProficiencyFilter from "../filters/proficiencyFilter";
 import SkillFilter from "../filters/skillFilter";
 import RefData from "../data/refData";
-
 // only import this if you are using the ag-Grid-Enterprise
 import "ag-grid-enterprise";
 
@@ -22,18 +21,20 @@ import {HeaderComponent} from "../header-component/header.component";
 export class RichGridDeclarativeComponent {
 
     public gridOptions: GridOptions;
-    public showGrid: boolean;
     private rowData: any[];
     public rowCount: string;
     public components = {
         headerGroupComponent: HeaderGroupComponent
     };
 
+    public showGrid: boolean = true;
+    public allSelected: boolean = false;
+    public countryHidden: boolean = false;
+
     constructor() {
         // we pass an empty gridOptions in, so we can grab the api out
         this.gridOptions = <GridOptions>{};
         this.createRowData();
-        this.showGrid = true;
         this.gridOptions.dateComponentFramework = DateComponent;
         this.gridOptions.defaultColDef = {
             headerComponentFramework: <{ new(): HeaderComponent }>HeaderComponent,
@@ -46,7 +47,7 @@ export class RichGridDeclarativeComponent {
     private createRowData() {
         const rowData: any[] = [];
 
-        for (let i = 0; i < 10000; i++) {
+        for (let i = 0; i < 200; i++) {
             const countryData = RefData.countries[i % RefData.countries.length];
             rowData.push({
                 name: RefData.firstNames[i % RefData.firstNames.length] + ' ' + RefData.lastNames[i % RefData.lastNames.length],
@@ -70,6 +71,15 @@ export class RichGridDeclarativeComponent {
         }
 
         this.rowData = rowData;
+    }
+
+    public dobFilter() {
+        let dateFilterComponent = this.gridOptions.api.getFilterInstance('dob');
+        dateFilterComponent.setModel({
+            type: 'equals',
+            dateFrom: '2000-01-01'
+        });
+        this.gridOptions.api.onFilterChanged();
     }
 
     private calculateRowCount() {
