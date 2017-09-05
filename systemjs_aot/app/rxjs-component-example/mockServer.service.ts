@@ -2,7 +2,7 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs/Rx";
 
-import {cloneDeep} from "lodash/";
+import {cloneDeep} from "lodash";
 
 @Injectable()
 export class MockServerService {

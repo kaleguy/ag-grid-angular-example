@@ -19,7 +19,6 @@ export class AlignedGridComponent implements AfterViewInit {
             onGridReady: (params) => {
                 this.retrieveAndSetRowData(params)
             }
-
         };
 
         this.gridOptionsBottom = <GridOptions>{
@@ -30,7 +29,6 @@ export class AlignedGridComponent implements AfterViewInit {
             onGridReady: (params) => {
                 this.retrieveAndSetRowData(params);
             }
-
         };
     }
 

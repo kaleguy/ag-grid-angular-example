@@ -10,18 +10,22 @@ export class PinnedRowComponent {
     public gridOptions: GridOptions;
 
     constructor() {
-        this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = this.createRowData();
-        this.gridOptions.columnDefs = this.createColumnDefs();
-        this.gridOptions.pinnedTopRowData = [
-            {row: "Top Row", number: "Top Number"}
-        ];
-        this.gridOptions.pinnedBottomRowData = [
-            {row: "Bottom Row", number: "Bottom Number"}
-        ];
+        this.gridOptions = <GridOptions>{
+            rowData: PinnedRowComponent.createRowData(),
+            columnDefs: PinnedRowComponent.createColumnDefs(),
+            onGridReady: () => {
+                this.gridOptions.api.sizeColumnsToFit();
+            },
+            pinnedTopRowData: [
+                {row: "Top Row", number: "Top Number"}
+            ],
+            pinnedBottomRowData: [
+                {row: "Bottom Row", number: "Bottom Number"}
+            ]
+        }
     }
 
-    private createColumnDefs() {
+    private static createColumnDefs() {
         return [
             {
                 headerName: "Row",
@@ -44,7 +48,7 @@ export class PinnedRowComponent {
         ];
     }
 
-    private createRowData() {
+    private static createRowData() {
         let rowData: any[] = [];
 
         for (let i = 0; i < 15; i++) {

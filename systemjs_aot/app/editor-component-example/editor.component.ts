@@ -12,9 +12,10 @@ export class EditorComponent {
     public gridOptions: GridOptions;
 
     constructor() {
-        this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = EditorComponent.createRowData();
-        this.gridOptions.columnDefs = EditorComponent.createColumnDefs();
+        this.gridOptions = <GridOptions>{
+            rowData: EditorComponent.createRowData(),
+            columnDefs: EditorComponent.createColumnDefs()
+        };
     }
 
     private static createColumnDefs() {

@@ -18,57 +18,61 @@ export class RxJsComponentByRow {
         this.rowDataUpdates$ = mockServerService.byRowupdates();
 
         this.gridOptions = <GridOptions> {
+            columnDefs: RxJsComponentByRow.createColumnDefs(),
             enableRangeSelection: true,
             enableColResize: true,
-            columnDefs: this.createColumnDefs(),
             getRowNodeId: function (data) {
                 // the code is unique, so perfect for the id
                 return data.code;
             },
             onGridReady: () => {
-                this.initialRowDataLoad$.subscribe(
-                    rowData => {
-                        // the initial full set of data
-                        // note that we don't need to un-subscribe here as it's a one off data load
-                        if (this.gridOptions.api) { // can be null when tabbing between the examples
-                            this.gridOptions.api.setRowData(rowData);
-                        }
-
-                        // now listen for updates
-                        // we process the updates with a transaction - this ensures that only the changes
-                        // rows will get re-rendered, improving performance
-                        this.rowDataUpdates$.subscribe((updates) => {
-                            if (this.gridOptions.api) { // can be null when tabbing between the examples
-                                this.gridOptions.api.updateRowData({update: updates})
-                            }
-                        });
-                    }
-                );
+                this.subscribeToData();
                 this.gridOptions.api.sizeColumnsToFit();
             }
         };
     }
 
-    private createColumnDefs() {
+    private subscribeToData() {
+        this.initialRowDataLoad$.subscribe(
+            rowData => {
+                // the initial full set of data
+                // note that we don't need to un-subscribe here as it's a one off data load
+                if (this.gridOptions.api) { // can be null when tabbing between the examples
+                    this.gridOptions.api.setRowData(rowData);
+                }
+
+                // now listen for updates
+                // we process the updates with a transaction - this ensures that only the changes
+                // rows will get re-rendered, improving performance
+                this.rowDataUpdates$.subscribe((updates) => {
+                    if (this.gridOptions.api) { // can be null when tabbing between the examples
+                        this.gridOptions.api.updateRowData({update: updates})
+                    }
+                });
+            }
+        );
+    }
+
+    private static createColumnDefs() {
         return [
             {headerName: "Code", field: "code", width: 70},
             {headerName: "Name", field: "name", width: 280},
             {
                 headerName: "Bid", field: "bid", width: 100,
                 cellClass: 'cell-number',
-                valueFormatter: this.numberFormatter,
+                valueFormatter: RxJsComponentByRow.numberFormatter,
                 cellRenderer: 'animateShowChange'
             },
             {
                 headerName: "Mid", field: "mid", width: 100,
                 cellClass: 'cell-number',
-                valueFormatter: this.numberFormatter,
+                valueFormatter: RxJsComponentByRow.numberFormatter,
                 cellRenderer: 'animateShowChange'
             },
             {
                 headerName: "Ask", field: "ask", width: 100,
                 cellClass: 'cell-number',
-                valueFormatter: this.numberFormatter,
+                valueFormatter: RxJsComponentByRow.numberFormatter,
                 cellRenderer: 'animateShowChange'
             },
             {
@@ -79,7 +83,7 @@ export class RxJsComponentByRow {
         ]
     }
 
-    numberFormatter(params) {
+    static numberFormatter(params) {
         if (typeof params.value === 'number') {
             return params.value.toFixed(2);
         } else {

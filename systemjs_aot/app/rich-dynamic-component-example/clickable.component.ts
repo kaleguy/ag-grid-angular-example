@@ -7,7 +7,8 @@ import {Component, EventEmitter, Input, Output} from "@angular/core";
     `,
     styles: [
         `.btn {
-            line-height: 0.5
+            line-height: 0.5;
+            width: 100%;
         }`
     ]
 })

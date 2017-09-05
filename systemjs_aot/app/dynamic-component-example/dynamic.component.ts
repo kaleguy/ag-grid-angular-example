@@ -16,12 +16,12 @@ export class DynamicComponent {
 
     constructor() {
         this.gridOptions = <GridOptions>{
+            rowData: DynamicComponent.createRowData(),
+            columnDefs: DynamicComponent.createColumnDefs(),
             context: {
                 componentParent: this
             }
         };
-        this.gridOptions.rowData = DynamicComponent.createRowData();
-        this.gridOptions.columnDefs = DynamicComponent.createColumnDefs();
     }
 
     // noinspection JSMethodCanBeStatic
@@ -73,7 +73,7 @@ export class DynamicComponent {
 
     public refreshEvenRowsCurrencyData() {
         this.gridOptions.api.forEachNode(rowNode => {
-            if(rowNode.data.value % 2 === 0) {
+            if (rowNode.data.value % 2 === 0) {
                 rowNode.setDataValue('currency', rowNode.data.value + Number(Math.random().toFixed(2)))
             }
         });

@@ -5,7 +5,7 @@ import {CustomGroupRenderer} from "./group-renderer";
 
 @Component({
     selector: 'ag-grouped-data-grid',
-    templateUrl: './grouped.data.grid.html'
+    templateUrl: './grouped-data.component.html'
 })
 export class GroupedDataGrid {
     public gridOptions: GridOptions;

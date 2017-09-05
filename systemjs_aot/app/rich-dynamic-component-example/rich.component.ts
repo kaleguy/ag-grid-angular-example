@@ -11,9 +11,13 @@ export class RichComponent {
     public gridOptions: GridOptions;
 
     constructor() {
-        this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = RichComponent.createRowData();
-        this.gridOptions.columnDefs = RichComponent.createColumnDefs();
+        this.gridOptions = <GridOptions>{
+            rowData: RichComponent.createRowData(),
+            columnDefs: RichComponent.createColumnDefs(),
+            onGridReady: () => {
+                this.gridOptions.api.sizeColumnsToFit();
+            }
+        };
     }
 
     private static createColumnDefs() {
@@ -23,13 +27,13 @@ export class RichComponent {
                 headerName: "Ratio Component",
                 field: "ratios",
                 cellRendererFramework: RatioParentComponent,
-                width: 350
+                width: 400
             },
             {
                 headerName: "Clickable Component",
                 field: "name",
                 cellRendererFramework: ClickableParentComponent,
-                width: 250
+                width: 200
             }
         ];
     }

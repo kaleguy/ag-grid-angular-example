@@ -12,13 +12,14 @@ export class FullWidthComponent {
     public gridOptions: GridOptions;
 
     constructor() {
-        this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = FullWidthComponent.createRowData();
-        this.gridOptions.columnDefs = FullWidthComponent.createColumnDefs();
-        this.gridOptions.isFullWidthCell = (rowNode: RowNode) => {
-            return (rowNode.id === "0") || (parseInt(rowNode.id) % 2 === 0);
+        this.gridOptions = <GridOptions>{
+            rowData: FullWidthComponent.createRowData(),
+            columnDefs: FullWidthComponent.createColumnDefs(),
+            isFullWidthCell: (rowNode: RowNode) => {
+                return (rowNode.id === "0") || (parseInt(rowNode.id) % 2 === 0);
+            },
+            fullWidthCellRendererFramework: NameAndAgeRendererComponent
         };
-        this.gridOptions.fullWidthCellRendererFramework = NameAndAgeRendererComponent;
     }
 
     private static createColumnDefs() {

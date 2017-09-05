@@ -12,13 +12,14 @@ export class GroupRowComponent {
     public gridOptions: GridOptions;
 
     constructor() {
-        this.gridOptions = <GridOptions>{};
-        this.gridOptions.rowData = GroupRowComponent.createRowData();
-        this.gridOptions.columnDefs = GroupRowComponent.createColumnDefs();
-        this.gridOptions.groupUseEntireRow = true;
-        this.gridOptions.groupRowInnerRendererFramework = MedalRendererComponent;
-        this.gridOptions.onGridReady = () => {
-            this.gridOptions.api.sizeColumnsToFit();
+        this.gridOptions = <GridOptions>{
+            rowData: GroupRowComponent.createRowData(),
+            columnDefs: GroupRowComponent.createColumnDefs(),
+            onGridReady: () => {
+                this.gridOptions.api.sizeColumnsToFit();
+            },
+            groupUseEntireRow: true,
+            groupRowInnerRendererFramework: MedalRendererComponent
         };
     }
 

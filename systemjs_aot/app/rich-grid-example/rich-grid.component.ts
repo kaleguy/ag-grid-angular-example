@@ -21,7 +21,7 @@ export class RichGridComponent {
 
     private gridOptions: GridOptions;
     public rowData: any[];
-    private columnDefs: any[];
+    public columnDefs: any[];
     public rowCount: string;
     public dateComponentFramework: DateComponent;
     public HeaderGroupComponent = HeaderGroupComponent;
@@ -31,7 +31,6 @@ export class RichGridComponent {
     public countryHidden: boolean = false;
 
     constructor() {
-        // we pass an empty gridOptions in, so we can grab the api out
         this.createRowData();
         this.createColumnDefs();
 
@@ -49,7 +48,7 @@ export class RichGridComponent {
     }
 
     private getContextMenuItems(): any {
-        let result: any = [
+        return [
             { // custom item
                 name: 'Alert ',
                 action: function () {
@@ -57,7 +56,6 @@ export class RichGridComponent {
                 },
                 cssClasses: ['redFont', 'bold']
             }];
-        return result;
     }
 
     private createRowData() {

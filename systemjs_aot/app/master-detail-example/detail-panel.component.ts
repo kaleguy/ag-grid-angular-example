@@ -13,10 +13,10 @@ export class DetailPanelComponent implements ICellRendererAngularComp, AfterView
 
     constructor() {
         this.gridOptions = <GridOptions>{
+            columnDefs: DetailPanelComponent.createColumnDefs(),
             enableSorting: true,
             enableFilter: true,
-            enableColResize: true,
-            columnDefs: DetailPanelComponent.createColumnDefs()
+            enableColResize: true
         };
     }
 

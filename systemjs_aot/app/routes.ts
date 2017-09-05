@@ -26,7 +26,7 @@ import {RxJsComponentByRow} from "./rxjs-component-example/rxjs-by-row.component
 // infinite pagination
 import {InfinitePaginationComponent} from "./infinite-pagination/infinite-pagination.component";
 // grouped rows: inner renderer
-import {GroupedDataGrid} from "./grouped-data-example/grouped.data.grid";
+import {GroupedDataGrid} from "./grouped-data-example/grouped-data.component";
 // aligned grid
 import {AlignedGridComponent} from "./aligned-grid-example/aligned-grid.component";
 
