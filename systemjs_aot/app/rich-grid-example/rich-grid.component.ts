@@ -26,7 +26,6 @@ export class RichGridComponent {
     public dateComponentFramework: DateComponent;
     public HeaderGroupComponent = HeaderGroupComponent;
 
-    public showGrid: boolean = true;
     public allSelected: boolean = false;
     public countryHidden: boolean = false;
 

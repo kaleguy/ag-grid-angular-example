@@ -1,16 +1,12 @@
 <div style="width: 800px;">
     <h1>Rich Grid Example</h1>
     <div style="display: inline-block;width: 100%">
-        <div *ngIf="showGrid" style="float: left">
+        <div style="float: left">
             <b>Employees Skills and Contact Details</b>
             {{rowCount}}
         </div>
-        <div style="float: right">
-            <button [disabled]="!showGrid" (click)="showGrid=false" class="btn btn-primary">Destroy Grid</button>
-            <button [disabled]="showGrid" (click)="showGrid=true" class="btn btn-secondary">Create Grid</button>
-        </div>
     </div>
-    <div *ngIf="showGrid" style="margin-top: 10px">
+    <div style="margin-top: 10px">
         <div>
             <span>
                 Grid API:
@@ -89,5 +85,86 @@
                          (columnPinnedCountChanged)="onColumnEvent($event)">
         </ag-grid-angular>
     </div>
-
+    <div class="row">
+        <div class="col-sm-12"><h1>Rich Grid Example</h1></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h5>This example demonstrates many features of ag-Grid.</h5>
+            <p><span style="font-weight: 500">Select All/Clear Selection</span>: Select or Deselect All Rows</p>
+            <p><span style="font-weight: 500">Hide/Show Country Column</span>: Select or Deselect All Rows (expand the Employee column to show the Country column first)</p>
+            <p><span style="font-weight: 500">Toggle The Tool Panel</span>: Let your users Pivot, Group and Aggregate using the Tool Panel</p>
+            <p><span style="font-weight: 500">Refresh Data</span>: Dynamically Update Grid Data</p>
+            <p><span style="font-weight: 500">Quick Filter</span>: Perform Quick Grid Wide Filtering with the Quick Filter</p>
+            <p><span style="font-weight: 500">DOB Filter</span>: Set the DOB filter to 01/01/2000 using the Filter API (expand the Employee column to show the DOB column)</p>
+            <p><span style="font-weight: 500">Custom Headers</span>: Sort, Filter and Render Headers using Header Components</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Grid & Column API</h4>
+                    <p class="card-text">Utilise Grid Features Programmatically Using the APIs Available</p>
+                    <a target="_blank" href="https://www.ag-grid.com/javascript-grid-api/" class="btn btn-primary">Grid API</a>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-column-api/" class="btn btn-primary">Column API</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Header Components</h4>
+                    <p class="card-text">Customer the Header with Angular Components</p>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-header-rendering/#headerComponent"
+                       class="btn btn-primary">Header Component</a>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-header-rendering/#headerGroupComponent"
+                       class="btn btn-primary">Header Group Component</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Filters</h4>
+                    <p class="card-text">Filter with Quick Filters, Floating Filters, Built In Filters or Using the
+                        Filter API</p>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-filter-quick/" class="btn btn-primary">Quick
+                        Filter</a>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-floating-filter-component/"
+                       class="btn btn-primary">Floating Filters</a>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-filtering/" class="btn btn-primary">Built in
+                        Filters</a>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-filtering/#accessing-filter-component-instances"
+                       class="btn btn-primary">Filter API</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Tool Panel</h4>
+                    <p class="card-text">Let your users Pivot, Group and Aggregate using the Tool Panel</p>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-tool-panel/" class="btn btn-primary">Tool Panel</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">The Rest</h4>
+                    <p class="card-text">Pinned Columns, Checkbox Selection, Customer Renderers, Data Updates</p>
+                    <a target="_blank" href="https://www.ag-grid.com/best-angular-2-data-grid/?framework=angular" class="btn btn-primary">Angular with ag-Grid</a>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-pinning/" class="btn btn-primary">Pinned Column</a>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-selection/#checkboxSelection"
+                       class="btn btn-primary">Checkbox Selection</a>
+                    <a target="_blank" href="https://www.ag-grid.com//javascript-grid-cell-rendering/" class="btn btn-primary">Cell
+                        Renderers</a>
+                    <a target="_blank" href="https://www.ag-grid.com/javascript-grid-data-update/" class="btn btn-primary">Updating Data</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

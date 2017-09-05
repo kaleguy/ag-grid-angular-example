@@ -21,13 +21,12 @@ import {HeaderComponent} from "../header-component/header.component";
 export class RichGridDeclarativeComponent {
 
     public gridOptions: GridOptions;
-    private rowData: any[];
+    public rowData: any[];
     public rowCount: string;
     public components = {
         headerGroupComponent: HeaderGroupComponent
     };
 
-    public showGrid: boolean = true;
     public allSelected: boolean = false;
     public countryHidden: boolean = false;
 
