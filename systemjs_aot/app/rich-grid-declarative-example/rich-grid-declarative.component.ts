@@ -27,6 +27,7 @@ export class RichGridDeclarativeComponent {
         headerGroupComponent: HeaderGroupComponent
     };
 
+    public showToolPanel: boolean = false;
     public allSelected: boolean = false;
     public countryHidden: boolean = false;
 
@@ -43,7 +44,7 @@ export class RichGridDeclarativeComponent {
         }
     }
 
-    private createRowData() {
+    public createRowData() {
         const rowData: any[] = [];
 
         for (let i = 0; i < 200; i++) {
@@ -90,12 +91,12 @@ export class RichGridDeclarativeComponent {
         }
     }
 
-    private onModelUpdated() {
+    public onModelUpdated() {
         console.log('onModelUpdated');
         this.calculateRowCount();
     }
 
-    private onReady() {
+    public onReady($event) {
         console.log('onReady');
         this.calculateRowCount();
     }
@@ -104,13 +105,13 @@ export class RichGridDeclarativeComponent {
         this.gridOptions.api.setQuickFilter($event.target.value);
     }
 
-    private countryCellRenderer(params) {
+    public countryCellRenderer(params) {
         const flag = "<img border='0' width='15' height='10' style='margin-bottom: 2px' src='images/flags/" + RefData.COUNTRY_CODES[params.value] + ".png'>";
         return flag + " " + params.value;
     }
 
     //noinspection JSUnusedLocalSymbols
-    private skillsCellRenderer(params) {
+    public skillsCellRenderer(params) {
         const data = params.data;
         const skills = [];
         RefData.IT_SKILLS.forEach(function (skill) {
@@ -122,7 +123,7 @@ export class RichGridDeclarativeComponent {
     }
 
     //noinspection JSUnusedLocalSymbols
-    private percentCellRenderer(params) {
+    public percentCellRenderer(params) {
         const value = params.value;
 
         const eDivPercentBar = document.createElement('div');
@@ -149,17 +150,17 @@ export class RichGridDeclarativeComponent {
     }
 
     //noinspection JSUnusedLocalSymbols
-    private getSkillFilter(): any {
+    public getSkillFilter(): any {
         return SkillFilter;
     }
 
     //noinspection JSUnusedLocalSymbols
-    private getProficiencyFilter(): any {
+    public getProficiencyFilter(): any {
         return ProficiencyFilter;
     }
 
     //noinspection JSUnusedLocalSymbols
-    private getCountryFilterParams(): any {
+    public getCountryFilterParams(): any {
         return {
             cellRenderer: this.countryCellRenderer,
             cellHeight: 20

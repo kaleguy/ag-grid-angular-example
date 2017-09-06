@@ -19,13 +19,14 @@ import {HeaderComponent} from "../header-component/header.component";
 })
 export class RichGridComponent {
 
-    private gridOptions: GridOptions;
+    public gridOptions: GridOptions;
     public rowData: any[];
     public columnDefs: any[];
     public rowCount: string;
     public dateComponentFramework: DateComponent;
     public HeaderGroupComponent = HeaderGroupComponent;
 
+    public showToolPanel: boolean = false;
     public allSelected: boolean = false;
     public countryHidden: boolean = false;
 
@@ -57,7 +58,7 @@ export class RichGridComponent {
             }];
     }
 
-    private createRowData() {
+    public createRowData() {
         const rowData: any[] = [];
 
         for (let i = 0; i < 200; i++) {
@@ -173,56 +174,56 @@ export class RichGridComponent {
         }
     }
 
-    private onModelUpdated() {
+    public onModelUpdated() {
         console.log('onModelUpdated');
         this.calculateRowCount();
     }
 
-    private onReady() {
+    public onReady($event) {
         console.log('onReady');
         this.calculateRowCount();
     }
 
-    private onCellClicked($event) {
+    public onCellClicked($event) {
         console.log('onCellClicked: ' + $event.rowIndex + ' ' + $event.colDef.field);
     }
 
-    private onCellValueChanged($event) {
+    public onCellValueChanged($event) {
         console.log('onCellValueChanged: ' + $event.oldValue + ' to ' + $event.newValue);
     }
 
-    private onCellDoubleClicked($event) {
+    public onCellDoubleClicked($event) {
         console.log('onCellDoubleClicked: ' + $event.rowIndex + ' ' + $event.colDef.field);
     }
 
-    private onCellContextMenu($event) {
+    public onCellContextMenu($event) {
         console.log('onCellContextMenu: ' + $event.rowIndex + ' ' + $event.colDef.field);
     }
 
-    private onCellFocused($event) {
+    public onCellFocused($event) {
         console.log('onCellFocused: (' + $event.rowIndex + ',' + $event.colIndex + ')');
     }
 
-    private onRowSelected($event) {
+    public onRowSelected($event) {
         // taking out, as when we 'select all', it prints to much to the console!!
         // console.log('onRowSelected: ' + $event.node.data.name);
     }
 
-    private onSelectionChanged() {
+    public onSelectionChanged() {
         console.log('selectionChanged');
     }
 
-    private onFilterModified() {
+    public onFilterModified() {
         console.log('onFilterModified');
     }
 
-    private onVirtualRowRemoved($event) {
+    public onVirtualRowRemoved($event) {
         // because this event gets fired LOTS of times, we don't print it to the
         // console. if you want to see it, just uncomment out this line
         // console.log('onVirtualRowRemoved: ' + $event.rowIndex);
     }
 
-    private onRowClicked($event) {
+    public onRowClicked($event) {
         console.log('onRowClicked: ' + $event.node.data.name);
     }
 
@@ -232,7 +233,7 @@ export class RichGridComponent {
 
     // here we use one generic event to handle all the column type events.
     // the method just prints the event name
-    private onColumnEvent($event) {
+    public onColumnEvent($event) {
         console.log('onColumnEvent: ' + $event);
     }
 

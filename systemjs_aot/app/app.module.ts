@@ -1,7 +1,7 @@
 import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {FormsModule} from "@angular/forms";
-import {RouterModule} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {HttpClientModule} from '@angular/common/http';
 // ag-grid
 import {AgGridModule} from "ag-grid-angular/main";
@@ -61,14 +61,131 @@ import {GroupedDataGrid} from "./grouped-data-example/grouped-data.component";
 import {CustomGroupRenderer} from "./grouped-data-example/group-renderer";
 // aligned grid
 import {AlignedGridComponent} from "./aligned-grid-example/aligned-grid.component";
+
 // for the demo
-import appRoutes from "./routes";
+const appRoutes: Routes = [
+    {
+        path: 'rich-grid',
+        component: RichGridComponent,
+        data: {
+            title: "Rich Grid Example"
+        }
+    },
+    {
+        path: 'rich-grid-declarative',
+        component: RichGridDeclarativeComponent,
+        data: {
+            title: "Rich Grid with Declarative Markup"
+        }
+    },
+    {
+        path: 'from-component',
+        component: DynamicComponent,
+        data: {
+            title: "Dynamic Angular Component Example"
+        }
+    },
+    {
+        path: 'from-rich-component',
+        component: RichComponent,
+        data: {
+            title: "Dynamic Angular Components - Richer Example"
+        }
+    },
+    {
+        path: 'editor-component',
+        component: EditorComponent,
+        data: {
+            title: "Cell Editor Component Example"
+        }
+    },
+    {
+        path: 'pinned-row',
+        component: PinnedRowComponent,
+        data: {
+            title: "Pinned Row Renderer Example"
+        }
+    },
+    {
+        path: 'full-width',
+        component: FullWidthComponent,
+        data: {
+            title: "Full Width Renderer Example"
+        }
+    },
+    {
+        path: 'simple-group-row',
+        component: GroupedDataGrid,
+        data: {
+            title: "Grouping with Auto Group Columns Example"
+        }
+    },
+    {
+        path: 'group-row',
+        component: GroupRowComponent,
+        data: {
+            title: "Grouped Row Inner Renderer Example"
+        }
+    },
+    {
+        path: 'filter',
+        component: FilterComponentComponent,
+        data: {
+            title: "Filters Component Example"
+        }
+    },
+    {
+        path: 'master-detail',
+        component: MasterComponent,
+        data: {
+            title: "Master Detail Example"
+        }
+    },
+    {
+        path: 'floating-filter',
+        component: FloatingFilterComponent,
+        data: {
+            title: "Floating Filters"
+        }
+    },
+    {
+        path: 'infinite-pagination',
+        component: InfinitePaginationComponent,
+        data: {
+            title: "Infinite Pagination"
+        }
+    },
+    {
+        path: 'aligned-grids',
+        component: AlignedGridComponent,
+        data: {
+            title: "Aligned Grids Example"
+        }
+    },
+    {
+        path: 'rxjs-by-row',
+        component: RxJsComponentByRow,
+        data: {
+            title: "RxJs - Single Row Update Example"
+        }
+    },
+    {
+        path: 'rxjs-by-dataset',
+        component: RxJsComponentByRow,
+        data: {
+            title: "RxJs - Full DataSet Update Example"
+        }
+    },
+    {
+        path: '', redirectTo: 'rich-grid', pathMatch: 'full'
+    }
+];
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
-        RouterModule.forRoot(appRoutes),
+        RouterModule.forRoot(appRoutes, { useHash: true }),
         HttpClientModule,
         AgGridModule.withComponents(
             [

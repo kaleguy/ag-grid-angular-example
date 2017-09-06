@@ -22,7 +22,7 @@ export class GroupedDataGrid {
         };
     }
 
-    onGridReady() {
+    onGridReady($event) {
         this.gridOptions.api.sizeColumnsToFit();
     }
 
