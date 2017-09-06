@@ -47,7 +47,6 @@
     "rxjs": "5.0.x",
     "zone.js": "0.8.x",
     "jquery": "3.1.1",
-    "jquery.layout": "1.2.0",
     "bootstrap": "3.3.6",
     "systemjs": "0.19.x"
   },
