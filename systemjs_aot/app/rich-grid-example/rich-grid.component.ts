@@ -117,8 +117,7 @@ export class RichGridComponent {
                         filterParams: {
                             cellRenderer: countryCellRenderer,
                             cellHeight: 20
-                        },
-                        columnGroupShow: 'open'
+                        }
                     },
                     {
                         headerName: "DOB",
@@ -148,7 +147,7 @@ export class RichGridComponent {
                     {
                         headerName: "Proficiency",
                         field: "proficiency",
-                        width: 120,
+                        width: 150,
                         cellRenderer: percentCellRenderer,
                         filter: ProficiencyFilter
                     },
