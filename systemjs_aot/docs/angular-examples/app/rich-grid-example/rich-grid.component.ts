@@ -172,7 +172,7 @@ export class RichGridComponent {
         this.calculateRowCount();
     }
 
-    private onReady() {
+    public onReady() {
         console.log('onReady');
         this.calculateRowCount();
     }
