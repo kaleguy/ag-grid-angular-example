@@ -10,6 +10,7 @@
     "clean": "npm run clean:jit && npm run clean:aot",
     "clean:jit": "rimraf app/*.js*",
     "start": "npm run tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "build":"npm run clean-build:aot",
     "clean:aot": "gulp clean-aot && gulp copy-aot-deps",
     "build:aot": "ngc -p tsconfig-aot.json && gulp aot-bundle",
     "lite:aot": "http-server ./aot/",
