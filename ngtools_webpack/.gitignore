@@ -1,0 +1,4 @@
+dist/app*
+dist/poly*
+dist/vendor*
+dist/index.html

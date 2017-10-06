@@ -4,12 +4,13 @@
   "description": "ag-Grid Angular Example Using Webpack 2",
   "scripts": {
     "clean": "rimraf dist && rimraf app/*.js* && rimraf app/*.map",
-    "clean-aot": "rimraf dist/aot/*",
+    "clean-aot": "rimraf dist/app* && rimraf dist/vendor* && rimraf dist/poly* && rimraf dist/index.html",
     "clean-non-aot": "rimraf dist/non-aot/*",
     "start:aot": "webpack-dev-server --config config/webpack.prod.aot.js --watch --profile --progress",
     "build:aot": "npm run clean-aot && webpack --config config/webpack.prod.aot.js --progress --profile --bail",
     "start:non-aot": "webpack-dev-server --config config/webpack.prod.non-aot.js --watch --profile --progress",
     "build:non-aot": "npm run clean-non-aot && webpack --config config/webpack.prod.non-aot.js --progress --profile --bail",
+    "build":"npm run build:aot",
     "start": "webpack-dev-server --config config/webpack.dev.js --inline --progress --port 8080"
   },
   "repository": {
