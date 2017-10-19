@@ -8,21 +8,25 @@
     "experimentalDecorators": true,
     /* with ts 2.1 commnents seem to trip systemjs-builder up */
     "removeComments": true,
-    "noImplicitAny": false,
-    "lib": ["dom","es2015"],
-    "outDir": "aot",
+    "lib": ["es2015", "dom"],
+    "outDir":"aot",
+    "typeRoots": [
+      "./node_modules/@types/"
+    ],
     "baseUrl": "",
     "paths": {
       "@angular/*": ["node_modules/@angular/*"],
       "ag-grid/*": ["node_modules/ag-grid/*"]
     }
   },
-  "exclude": [
-    "node_modules/",
-    "docs"
+  "files": [
+    "app/app.module.ts",
+    "app/boot-aot.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "aot",
-    "skipMetadataEmit": true
+    "skipMetadataEmit" : true,
+    /* fixes issue with static data references: https://github.com/angular/angular/issues/19782 */
+    "annotationsAs": "decorators"
+
   }
 }

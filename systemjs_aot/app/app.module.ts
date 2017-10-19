@@ -62,7 +62,7 @@ import {CustomGroupRenderer} from "./grouped-data-example/group-renderer";
 // aligned grid
 import {AlignedGridComponent} from "./aligned-grid-example/aligned-grid.component";
 
-// for the demo
+// for the demo§
 const appRoutes: Routes = [
     {
         path: 'rich-grid',

@@ -1,19 +1,22 @@
 import {browser, by, element, protractor} from "protractor";
+import {beforeEach, describe, expect, fail, it} from "jasmine";
 
 describe('ag-grid-angular-examples E2E Tests', function () {
 
-    let expectedTabTitles = [
-        'Rich Grid Example',
+    let expectedTabTitles = ['Rich Grid Example',
         'Rich Grid with Declarative Markup',
         'Dynamic Angular Component Example',
         'Dynamic Angular Components - Richer Example',
         'Cell Editor Component Example',
         'Pinned Row Renderer Example',
         'Full Width Renderer Example',
+        'Grouping with Auto Group Columns Example',
         'Grouped Row Inner Renderer Example',
         'Filters Component Example',
         'Master Detail Example',
         'Floating Filters',
+        'Infinite Pagination',
+        'Aligned Grids Example',
         'RxJs - Single Row Update Example',
         'RxJs - Full DataSet Update Example'
     ];
@@ -25,7 +28,7 @@ describe('ag-grid-angular-examples E2E Tests', function () {
     it(`should have ${expectedTabTitles.length} Tab Titles`, function () {
         element.all(by.css('li[role=presentation] a')).count().then(function (val) {
             console.log('title length', (val === expectedTabTitles.length));
-            expect(val === expectedTabTitles.length).toBeTruthy()
+            return (val === expectedTabTitles.length)
         });
     });
 
@@ -33,8 +36,8 @@ describe('ag-grid-angular-examples E2E Tests', function () {
         element.all(by.css('li[role=presentation] a')).map((anchor) => {
             return anchor.getText()
         }).then((linkTexts) => {
-            linkTexts.forEach((linkText) => {
-                let index = expectedTabTitles.indexOf(linkText);
+            linkTexts.forEach((linkText:string) => {
+                let index: number = expectedTabTitles.indexOf(linkText);
                 if (index === -1) {
                     fail(`${linkText} not in the list of expected titles`);
                 }

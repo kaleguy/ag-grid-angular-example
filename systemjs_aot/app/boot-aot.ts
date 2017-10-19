@@ -1,8 +1,5 @@
-import {platformBrowser} from "@angular/platform-browser";
-import {AppModuleNgFactory} from "../aot/app/app.module.ngfactory";
+import { platformBrowser }    from '@angular/platform-browser';
+import { AppModuleNgFactory } from './app.module.ngfactory';
 
-// for enterprise customers
-// import {LicenseManager} from "ag-grid-enterprise/main";
-// LicenseManager.setLicenseKey("your license key");
-
+console.log('Running AOT compiled');
 platformBrowser().bootstrapModuleFactory(AppModuleNgFactory);
