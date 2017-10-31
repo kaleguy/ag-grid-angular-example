@@ -16,9 +16,8 @@
     "app/boot-aot.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "aot/",
-    "skipMetadataEmit": true,
-    "entryModule": "./app/app#AppModule"
+    "genDir": "dist/",
+    "skipMetadataEmit": true
   },
   "atom": {
     "rewriteTsconfig": false

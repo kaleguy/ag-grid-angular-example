@@ -10,6 +10,7 @@
     "clean": "npm run clean:jit && npm run clean:aot",
     "clean:jit": "rimraf app/*.js*",
     "start": "npm run tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "build": "npm run clean-build:aot",
     "clean:aot": "gulp clean-aot && gulp copy-aot-deps",
     "build:aot": "ngc -p tsconfig-aot.json && gulp aot-bundle",
     "lite:aot": "http-server ./aot/",
@@ -41,7 +42,7 @@
     "@angular/platform-browser": "4.3.3",
     "@angular/platform-browser-dynamic": "4.3.3",
     "@angular/platform-server": "4.3.3",
-    "@angular/animations@4.3.3 ": "4.3.3",
+    "@angular/animations": "4.3.3",
     "@angular/router": "4.3.3",
     "core-js": "2.4.x",
     "rxjs": "5.0.x",
@@ -73,7 +74,7 @@
     "rimraf": "2.5.x",
     "run-sequence": "1.2.x",
     "systemjs-builder": "0.15.33",
-    "typescript": "2.1.x",
+    "typescript": "2.2.x",
     "webdriver-manager": "10.2.5"
   }
 }

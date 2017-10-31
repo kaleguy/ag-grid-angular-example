@@ -19,7 +19,7 @@ module.exports = {
     },
 
     output: {
-        path: helpers.root('dist/aot'),
+        path: helpers.root('dist/'),
         publicPath: '/',
         filename: '[name].[hash].js',
         chunkFilename: '[id].[hash].chunk.js'

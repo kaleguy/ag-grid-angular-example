@@ -65,7 +65,7 @@
     "rimraf": "2.5.x",
     "run-sequence": "1.2.x",
     "style-loader": "0.13.x",
-    "typescript": "2.1.x",
+    "typescript": "2.2.x",
     "url-loader": "0.5.7",
     "webdriver-manager": "10.2.5",
     "webpack": "2.2.x",
