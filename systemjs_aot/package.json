@@ -6,7 +6,7 @@
     "postinstall": "webdriver-manager update",
     "tsc": "tsc -p tsconfig.json",
     "tsc:w": "tsc -p tsconfig.json -w",
-    "lite": "lite-server",
+    "lite": "lite-server -c bs-config.json",
     "clean": "npm run clean:jit && npm run clean:aot",
     "clean:jit": "rimraf app/*.js*",
     "start": "npm run tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
