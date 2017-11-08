@@ -15,8 +15,12 @@
     "baseUrl": "",
     "types": [],
     "paths": {
-      "@angular/*": ["../node_modules/@angular/*"],
-      "ag-grid/*": ["../node_modules/ag-grid/*"]
+      "@angular/*": [
+        "../node_modules/@angular/*"
+      ],
+      "ag-grid/*": [
+        "../node_modules/ag-grid/*"
+      ]
     }
   },
   "exclude": [
