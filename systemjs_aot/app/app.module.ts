@@ -45,9 +45,6 @@ import {GroupRowComponent} from "./grouped-row-inner-renderer-example/group-row-
 // filter
 import {FilterComponentComponent} from "./filter-component-example/filter.component";
 import {PartialMatchFilterComponent} from "./filter-component-example/partial-match-filter.component";
-// master detail
-import {MasterComponent} from "./master-detail-example/masterdetail-master.component";
-import {DetailPanelComponent} from "./master-detail-example/detail-panel.component";
 // floating filter
 import {FloatingFilterComponent} from "./floating-filter-example/floating-filter.component";
 import {SliderFloatingFilter} from "./floating-filter-example/slider-floating-filter.component";
@@ -135,13 +132,6 @@ const appRoutes: Routes = [
         }
     },
     {
-        path: 'master-detail',
-        component: MasterComponent,
-        data: {
-            title: "Master Detail Example"
-        }
-    },
-    {
         path: 'floating-filter',
         component: FloatingFilterComponent,
         data: {
@@ -203,7 +193,6 @@ const appRoutes: Routes = [
                 NameAndAgeRendererComponent,
                 MedalRendererComponent,
                 PartialMatchFilterComponent,
-                DetailPanelComponent,
                 DateComponent,
                 HeaderComponent,
                 HeaderGroupComponent,
@@ -241,8 +230,6 @@ const appRoutes: Routes = [
         MedalRendererComponent,
         FilterComponentComponent,
         PartialMatchFilterComponent,
-        MasterComponent,
-        DetailPanelComponent,
         FloatingFilterComponent,
         SliderFloatingFilter,
         InfinitePaginationComponent,
