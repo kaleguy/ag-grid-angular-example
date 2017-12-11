@@ -1,6 +1,6 @@
 {
   "name": "ag-grid-angular-example",
-  "version": "14.2.0",
+  "version": "15.0.0",
   "description": "ag-Grid Angular Example Using Angular CLI",
   "license": "MIT",
   "angular-cli": {},
@@ -14,9 +14,9 @@
   },
   "private": true,
   "dependencies": {
-    "ag-grid": "^14.0.0",
-    "ag-grid-enterprise": "^14.0.0",
-    "ag-grid-angular": "^14.0.0",
+    "ag-grid": "^15.x",
+    "ag-grid-enterprise": "^15.x",
+    "ag-grid-angular": "^15.x",
     "@angular/common": "5.0.0",
     "@angular/compiler": "5.0.0",
     "@angular/compiler-cli": "5.0.0",
