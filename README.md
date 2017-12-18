@@ -9,8 +9,7 @@ There are number of example projects provided here, with each project having a d
 * The first uses SystemJS for Just in Time compilation, and SystemJS Builder for AOT bundling. This can be found under the *systemjs_aot* folder.
 * The second uses Webpack for bundling and includes both a dev and prod configuration. This can be found under the *webpack* folder.
 * The third uses Webpack 2 for bundling and includes both a dev and prod configuration. This can be found under the *webpack2* folder.
-* The fourth uses Webpack 2 (with ngtools/webpack for AOT support) for bundling and includes both a dev and prod configuration. This can be found under the *ngtools_webpack* folder.
-* The fifth uses Angular-CLI for building and includes both a dev and prod configuration. This can be found under the *angular-cli* folder.
+* The fourth uses Angular-CLI for building and includes both a dev and prod configuration. This can be found under the *angular-cli* folder.
 
 Please read the README in each sub-folder for instruction how to build & run each sub-project.
 
