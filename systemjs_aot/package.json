@@ -52,6 +52,7 @@
     "systemjs": "0.19.x"
   },
   "devDependencies": {
+    "@types/jasmine": "^2.8.2",
     "@types/node": "6.0.45",
     "@types/selenium-webdriver": "2.53.33",
     "canonical-path": "0.0.2",
