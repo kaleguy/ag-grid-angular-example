@@ -38,8 +38,10 @@ webpack/app/*.js.map
 webpack2/dist
 webpack2/e2e/*.js
 webpack2/e2e/*.js.map
-webpack/app/*.js
+webpack2/app/*.js
 webpack2/app/*.js.map
 
-# ngtools/webpack
-ag-grid-angular-example/ngtools_webpack/dist/**/*
+# webpack 3
+webpack3/dist
+webpack3/app/*.js
+webpack3/app/*.js.map
