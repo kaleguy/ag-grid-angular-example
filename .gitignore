@@ -22,10 +22,6 @@ systemjs_aot/e2e/app.e2e-spec.js.map
 systemjs_aot/aot/aot
 systemjs_aot/aot/app
 systemjs_aot/aot/dist
-systemjs_aot/aot/node_modules
-systemjs_aot/docs/ng2-example/app/*.js
-systemjs_aot/docs/ng2-example/app/*.map
-systemjs_rollup
 
 # webpack
 webpack/dist
@@ -38,8 +34,10 @@ webpack/app/*.js.map
 webpack2/dist
 webpack2/e2e/*.js
 webpack2/e2e/*.js.map
-webpack/app/*.js
+webpack2/app/*.js
 webpack2/app/*.js.map
 
-# ngtools/webpack
-ag-grid-angular-example/ngtools_webpack/dist/**/*
+# webpack 3
+webpack3/dist
+webpack3/app/*.js
+webpack3/app/*.js.map
