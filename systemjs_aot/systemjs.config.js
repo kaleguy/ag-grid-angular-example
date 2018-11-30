@@ -19,7 +19,7 @@
                 'lodash': 'node_modules/lodash',
                 // ag libraries
                 'ag-grid-angular': 'node_modules/ag-grid-angular',
-                'ag-grid': 'node_modules/ag-grid',
+                'ag-grid-community': 'node_modules/ag-grid-community',
                 'ag-grid-enterprise': 'node_modules/ag-grid-enterprise'
             },
             packages: {
@@ -32,7 +32,7 @@
                         },
                     }
                 },
-                'ag-grid': {
+                'ag-grid-community': {
                     main: 'main.js'
                 },
                 'ag-grid-enterprise': {
