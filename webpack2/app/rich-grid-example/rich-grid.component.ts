@@ -69,7 +69,7 @@ export class RichGridComponent {
                 landline: createRandomPhoneNumber()
             });
         }
-
+        console.log('ROW DATA', rowData);
         this.rowData = rowData;
     }
 
@@ -97,7 +97,7 @@ export class RichGridComponent {
                         return  pad(params.value.getDate(), 2) + '/' +
                             pad(params.value.getMonth() + 1, 2)+ '/' +
                             params.value.getFullYear();
-                        }, filter: 'date', columnGroupShow: 'open'
+                        }, filter: 'date'
                     }
                 ]
             },

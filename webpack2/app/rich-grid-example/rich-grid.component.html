@@ -1,4 +1,4 @@
-<div style="width: 800px;">
+<div style="width: 1400px;">
     <h1>Rich Grid Example</h1>
     <div style="padding: 4px;">
         <div style="float: right;">
@@ -56,6 +56,9 @@
                      toolPanelSuppressValues
                      rowHeight="22"
                      rowSelection="multiple"
+
+                     [enableFilter]="true"
+                     [enableSorting]="true"
 
                      (modelUpdated)="onModelUpdated()"
                      (cellClicked)="onCellClicked($event)"
