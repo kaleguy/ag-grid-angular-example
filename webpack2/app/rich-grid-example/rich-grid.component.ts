@@ -219,6 +219,105 @@ export class RichGridComponent {
         console.log('onColumnEvent: ' + $event);
     }
 
+    onBtExport() {
+        var params = {
+//            skipHeader: getBooleanValue("#skipHeader"),
+//            columnGroups: getBooleanValue("#columnGroups"),
+//            skipFooters: getBooleanValue("#skipFooters"),
+//            skipGroups: getBooleanValue("#skipGroups"),
+//            skipPinnedTop: getBooleanValue("#skipPinnedTop"),
+//            skipPinnedBottom: getBooleanValue("#skipPinnedBottom"),
+//            allColumns: getBooleanValue("#allColumns"),
+//            onlySelected: getBooleanValue("#onlySelected"),
+//            fileName: document.querySelector("#fileName").value,
+//            sheetName: document.querySelector("#sheetName").value,
+//            exportMode: document.querySelector('input[name="mode"]:checked').value
+        };
+/**
+        if (getBooleanValue("#skipGroupR")) {
+            params.shouldRowBeSkipped = function(params) {
+                return params.node.data.country.charAt(0) === "R";
+            };
+        }
+        if (getBooleanValue("#useCellCallback")) {
+            params.processCellCallback = function(params) {
+                if (params.value && params.value.toUpperCase) {
+                    return params.value.toUpperCase();
+                } else {
+                    return params.value;
+                }
+            };
+        }
+        if (getBooleanValue("#useSpecificColumns")) {
+            params.columnKeys = ["country", "bronze"];
+        }
+        if (getBooleanValue("#processHeaders")) {
+            params.processHeaderCallback = function(params) {
+                return params.column.getColDef().headerName.toUpperCase();
+            };
+        }
+        if (getBooleanValue("#appendHeader")) {
+            params.customHeader = [
+                [],
+                [
+                    {
+                        data: {
+                            type: "String",
+                            value: "Summary"
+                        }
+                    }
+                ],
+                [
+                    {
+                        data: {
+                            type: "String",
+                            value: "Sales"
+                        },
+                        mergeAcross: 2
+                    },
+                    {
+                        data: {
+                            type: "Number",
+                            value: "3695.36"
+                        }
+                    }
+                ],
+                []
+            ];
+        }
+        if (getBooleanValue("#appendFooter")) {
+            params.customFooter = [
+                [],
+                [
+                    {
+                        data: {
+                            type: "String",
+                            value: "Footer"
+                        }
+                    }
+                ],
+                [
+                    {
+                        data: {
+                            type: "String",
+                            value: "Purchases"
+                        },
+                        mergeAcross: 2
+                    },
+                    {
+                        data: {
+                            type: "Number",
+                            value: "7896.35"
+                        }
+                    }
+                ],
+                []
+            ];
+        }
+ */
+        this.gridOptions.api.exportDataAsExcel(params);
+    }
+
 }
 
 function skillsCellRenderer(params) {

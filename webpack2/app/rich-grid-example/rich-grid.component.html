@@ -18,6 +18,10 @@
         <!-- Because we are using the Angular ID (ie #ag-grid marker), we have to have all the items that use
              that marker inside the same ng-if as the grid -->
 
+        <div style="margin: 5px; text-align: right">
+            <label> <button (click)="onBtExport()" style="height: 25px; cursor: pointer">Export to Excel</button> </label>
+        </div>
+
         <div style="padding: 4px;" class="toolbar">
             <span>
                 Grid API:
@@ -56,10 +60,12 @@
                      toolPanelSuppressValues
                      rowHeight="22"
                      rowSelection="multiple"
-
+                     floatingFilter="true"
+                     floatingFiltersHeight="40"
+                     headerHeight="40"
                      [enableFilter]="true"
                      [enableSorting]="true"
-
+                     [floatingFilter]="true"
                      (modelUpdated)="onModelUpdated()"
                      (cellClicked)="onCellClicked($event)"
                      (cellDoubleClicked)="onCellDoubleClicked($event)"
